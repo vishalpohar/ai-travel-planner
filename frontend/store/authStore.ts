@@ -1,10 +1,9 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { showSuccess, showError } from "@/lib/toast";
+import { showSuccess } from "@/lib/toast";
 
 import { authService } from "@/services/auth.service";
 import { User } from "@/types/auth";
-import { getErrorMessage } from "@/lib/getErrorMessage";
 
 interface AuthStore {
   user: User | null;
@@ -34,7 +33,6 @@ export const useAuthStore = create<AuthStore>()(
         set({ loading: true });
         try {
           const data = await authService.login({ email, password });
-
           set({ user: data.user, token: data.token });
         } catch (error: any) {
           throw error;
