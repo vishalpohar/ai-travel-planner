@@ -15,10 +15,10 @@ export default function BudgetCard({ title, value }: Props) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.3 }}
-      className="rounded-xl border border-white/30 bg-transparent p-5">
+      className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
       <p className="text-sm text-zinc-400">{title}</p>
 
-      <h3 className="mt-2 text-white text-xl font-bold">
+      <h3 className="mt-3 text-3xl font-bold text-black">
         {currenyFormatter(value)}
       </h3>
     </motion.div>

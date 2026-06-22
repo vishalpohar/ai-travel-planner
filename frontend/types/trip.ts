@@ -1,6 +1,6 @@
 export type BudgetTier = "Low" | "Medium" | "High";
 
-export type TripStatus = "draft" | "completed";
+export type TripStatus = "draft" | "planned" | "completed";
 
 export interface Activity {
   _id: string;

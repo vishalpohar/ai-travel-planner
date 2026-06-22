@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 
 import { useTripStore } from "@/store/tripStore";
 
+import CompleteTripButton from "@/components/trip/CompleteTripButton";
 import BudgetSummary from "@/components/trip/BudgetSummary";
 import HotelList from "@/components/trip/HotelList";
 import Itinerary from "@/components/trip/Itinerary";
@@ -32,27 +33,37 @@ export default function TripDetailsPage() {
 
   return (
     <section className="container py-10">
-      <div className="mb-10">
-        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div className="mb-10 rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <h1 className="text-4xl font-bold">{trip.destination}</h1>
+            <span className="inline-flex rounded-full bg-zinc-100 px-3 py-1 text-sm font-medium text-zinc-600">
+              {trip.status}
+            </span>
+
+            <h1 className="mt-4 text-4xl text-black font-bold">
+              {trip.destination}
+            </h1>
 
             <p className="mt-2 text-zinc-500">
-              {trip.durationDays} Days • {trip.budgetTier}
+              {trip.durationDays} Days • {trip.budgetTier} Budget
             </p>
           </div>
 
-          <DeleteTripButton tripId={trip._id} />
-        </div>
+          <div className="flex gap-3">
+            {trip.status === "draft" && (
+              <GenerateTripButton tripId={trip._id} />
+            )}
 
-        {trip.status === "draft" && (
-          <div className="mt-6">
-            <GenerateTripButton tripId={trip._id} />
+            {trip.status === "planned" && (
+              <CompleteTripButton tripId={trip._id} />
+            )}
+
+            <DeleteTripButton tripId={trip._id} />
           </div>
-        )}
+        </div>
       </div>
 
-      {trip.status === "completed" && (
+      {trip.status !== "draft" && (
         <div className="space-y-10">
           <BudgetSummary budget={trip.estimatedBudget} />
 

@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 
+import { MapPinned } from "lucide-react";
+
 import { useTripStore } from "@/store/tripStore";
 
 import TripList from "@/components/trip/TripList";
@@ -33,8 +35,9 @@ export default function TripsPage() {
 
       {trips.length === 0 ? (
         <EmptyState
+          icon={MapPinned}
           title="No Trips Yet"
-          description="Create your first AI-generated travel itinerary."
+          description="Create your first AI-generated travel itinerary and start exploring the world smarter."
           actionLabel="Create Trip"
           href="/create-trip"
         />

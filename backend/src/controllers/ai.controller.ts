@@ -37,7 +37,7 @@ export const generateTrip = async (req: Request, res: Response) => {
 
     trip.estimatedBudget = calculateTripBudget(trip);
 
-    trip.status = "completed";
+    trip.status = "planned";
 
     await trip.save();
 

@@ -19,20 +19,29 @@ export default function PackingItemCard({ item, tripId }: Props) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.3 }}
-      className="flex items-center justify-between gap-3 rounded-lg border border-white/30 p-4">
+      className="flex items-center justify-between gap-4 rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
       <div>
-        <p className={item.isPacked ? "line-through text-zinc-400" : ""}>
+        <p
+          className={`font-medium ${
+            item.isPacked ? "text-zinc-400 line-through" : "text-black"
+          }`}>
           {item.item}
         </p>
 
-        <p className="text-xs text-zinc-500">{item.category}</p>
+        <p className="mt-1 inline-flex rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-600">
+          {item.category}
+        </p>
       </div>
       <button
-        className="cursor-pointer"
         type="button"
-        aria-label={item.isPacked ? "Uncheck" : "Check"}
-        onClick={() => togglePackingItem(tripId, item._id)}>
-        {item.isPacked ? <X color="red" /> : <Check color="green" />}
+        aria-label={item.isPacked ? "Unpack" : "Pack"}
+        onClick={() => togglePackingItem(tripId, item._id)}
+        className={`flex h-10 w-10 items-center justify-center rounded-full transition cursor-pointer ${
+          item.isPacked
+            ? "bg-red-50 text-red-500"
+            : "bg-green-50 text-green-500"
+        }`}>
+        {item.isPacked ? <X size={18} /> : <Check size={18} />}
       </button>
     </motion.div>
   );

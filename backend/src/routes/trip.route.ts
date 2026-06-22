@@ -9,6 +9,7 @@ import {
   addActivity,
   removeActivity,
   togglePackingItem,
+  completeTrip,
 } from "../controllers/trip.controller.js";
 
 import { protect } from "../middleware/auth.js";
@@ -32,5 +33,7 @@ router.patch("/:tripId/day/:dayNumber/activity", protect, addActivity);
 router.delete("/:tripId/activity/:activityId", protect, removeActivity);
 
 router.patch("/:tripId/packing/:packingItemId", protect, togglePackingItem);
+
+router.patch("/:tripId/complete", protect, completeTrip);
 
 export default router;

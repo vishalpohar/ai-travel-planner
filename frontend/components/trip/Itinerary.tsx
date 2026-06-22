@@ -30,24 +30,29 @@ export default function Itinerary({ itinerary, tripId }: Props) {
 
   return (
     <section>
-      <h2 className="mb-4 text-2xl font-semibold">Itinerary</h2>
+      <div className="mb-6">
+        <h2 className="text-2xl font-bold">Itinerary</h2>
 
-      <ul className="flex flex-wrap gap-2 mb-4">
+        <p className="text-zinc-500">Explore your day-by-day travel plan.</p>
+      </div>
+
+      <ul className="mb-6 flex flex-wrap gap-3">
         {itinerary.map((day) => (
-          <li key={day._id}>
+          <li key={day.dayNumber}>
             <button
               type="button"
-              className={`rounded-md px-5 py-2 transition border cursor-pointer ${
+              onClick={() => setActiveDay(day.dayNumber)}
+              className={`rounded-full px-5 py-2 text-sm font-medium transition cursor-pointer ${
                 activeDay === day.dayNumber
-                  ? "text-sky-600 border-sky-600 hover:bg-sky-600/10 font-bold"
-                  : "text-zinc-300 border-zinc-400 hover:bg-white/10"
-              }`}
-              onClick={() => setActiveDay(day.dayNumber)}>
+                  ? "bg-black text-white"
+                  : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200"
+              }`}>
               Day {day.dayNumber}
             </button>
           </li>
         ))}
       </ul>
+
       <DayCard day={currentDay} tripId={tripId} />
     </section>
   );

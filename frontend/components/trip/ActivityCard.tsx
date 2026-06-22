@@ -26,26 +26,26 @@ export default function ActivityCard({ activity, tripId }: Props) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.3 }}
-        className="rounded-lg bg-transparent border border-white/20 p-4">
-        <div className="flex flex-col sm:flex-row items-start sm:justify-between gap-5">
+        className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div className="flex-1">
-            <div className="flex justify-between items-center">
-              <h4 className="font-medium">{activity.title}</h4>
+            <div className="flex items-center justify-between">
+              <h4 className="font-semibold text-black">{activity.title}</h4>
 
-              <span className="text-sm text-zinc-400">
+              <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-600">
                 {activity.timeOfDay}
               </span>
             </div>
 
             <p className="mt-2 text-sm text-zinc-500">{activity.description}</p>
 
-            <p className="mt-2 text-sm font-medium text-sky-600">
+            <p className="mt-3 text-sm font-semibold text-black">
               {currenyFormatter(activity.estimatedCost)}
             </p>
           </div>
           <button
             onClick={() => setIsDeleteOpen(true)}
-            className="rounded-lg bg-red-100 px-3 py-1 text-sm text-red-700 cursor-pointer">
+            className="rounded-lg border border-red-500 px-3 py-2 text-sm font-medium text-red-500 transition hover:bg-red-50 cursor-pointer">
             Remove
           </button>
         </div>

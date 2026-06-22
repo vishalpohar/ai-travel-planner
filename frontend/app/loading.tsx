@@ -2,7 +2,7 @@ import Loader from "@/components/ui/Loader";
 
 export default function Loading() {
   return (
-    <div className="flex min-h-[70vh] items-center justify-center">
+    <div className="flex min-h-screen items-center justify-center bg-white">
       <Loader />
     </div>
   );

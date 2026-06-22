@@ -62,7 +62,7 @@ export default function AddActivityModal({
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Activity Title"
-          className="w-full text-gray-700 rounded-lg border p-3"
+          className="w-full rounded-xl border border-zinc-300 px-4 py-3 text-black outline-none focus:border-black"
           required
         />
 
@@ -70,7 +70,7 @@ export default function AddActivityModal({
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Description"
-          className="w-full text-gray-700 rounded-lg border p-3"
+          className="w-full rounded-xl border border-zinc-300 px-4 py-3 text-black outline-none focus:border-black"
           rows={3}
           required
         />
@@ -80,7 +80,7 @@ export default function AddActivityModal({
           value={estimatedCost}
           onChange={(e) => setEstimatedCost(Number(e.target.value))}
           placeholder="Cost"
-          className="w-full text-gray-700 rounded-lg border p-3"
+          className="w-full rounded-xl border border-zinc-300 px-4 py-3 text-black outline-none focus:border-black"
         />
 
         <select
@@ -88,7 +88,7 @@ export default function AddActivityModal({
           onChange={(e) =>
             setTimeOfDay(e.target.value as "Morning" | "Afternoon" | "Evening")
           }
-          className="w-full text-gray-700 rounded-lg border p-3">
+          className="w-full rounded-xl border border-zinc-300 px-4 py-3 text-black outline-none focus:border-black">
           <option>Morning</option>
 
           <option>Afternoon</option>
@@ -98,7 +98,7 @@ export default function AddActivityModal({
 
         <button
           type="submit"
-          className="w-full rounded-lg bg-sky-600 py-3 text-white cursor-pointer">
+          className="w-full rounded-xl bg-black py-3 font-medium text-white transition hover:bg-zinc-900 cursor-pointer">
           Add Activity
         </button>
       </form>

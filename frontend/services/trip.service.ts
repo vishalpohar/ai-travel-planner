@@ -75,4 +75,10 @@ export const tripService = {
 
     return response.data;
   },
+
+  completeTrip: async (tripId: string) => {
+    const { data } = await api.patch(`/trips/${tripId}/complete`);
+
+    return data.trip;
+  },
 };

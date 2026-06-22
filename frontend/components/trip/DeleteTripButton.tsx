@@ -28,7 +28,7 @@ export default function DeleteTripButton({ tripId }: Props) {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="rounded-lg px-4 py-2 text-red-600 border border-red-600 hover:bg-red-600/10 cursor-pointer">
+        className="rounded-xl border border-red-500 px-6 py-3 font-medium text-red-500 transition hover:bg-red-50 cursor-pointer">
         Delete Trip
       </button>
 

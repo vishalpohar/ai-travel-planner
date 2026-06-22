@@ -17,20 +17,20 @@ export default function DayCard({ day, tripId }: Props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isRegenerateOpen, setIsRegenerateOpen] = useState(false);
   return (
-    <div className="rounded-xl border border-white/30 bg-transparent p-5">
-      <div className="mb-4 flex items-center justify-between">
-        <h3 className="text-xl font-semibold">Day {day.dayNumber}</h3>
+    <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <h3 className="text-xl text-black font-semibold">Day {day.dayNumber}</h3>
 
-        <div className="flex flex-col sm:flex-row gap-2">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <button
             onClick={() => setIsModalOpen(true)}
-            className="rounded-lg px-4 py-2 text-sm text-sky-600 font-bold border border-sky-600 hover:bg-sky-600/10 cursor-pointer">
+            className="rounded-xl border border-black px-4 py-2 text-sm text-black font-medium transition hover:bg-zinc-100 cursor-pointer">
             Add Activity
           </button>
 
           <button
             onClick={() => setIsRegenerateOpen(true)}
-            className="rounded-lg px-4 py-2 text-sm text-amber-500 font-bold border border-amber-600 hover:bg-amber-600/10 cursor-pointer">
+            className="rounded-xl bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-900 cursor-pointer">
             Regenerate Day
           </button>
         </div>

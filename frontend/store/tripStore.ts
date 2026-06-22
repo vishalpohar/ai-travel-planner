@@ -39,6 +39,8 @@ interface TripStore {
   togglePackingItem: (tripId: string, itemId: string) => Promise<void>;
 
   deleteTrip: (tripId: string) => Promise<void>;
+
+  completeTrip: (tripId: string) => Promise<void>;
 }
 
 export const useTripStore = create<TripStore>((set) => ({
@@ -192,6 +194,20 @@ export const useTripStore = create<TripStore>((set) => ({
       toast.success("Trip deleted");
     } catch {
       toast.error("Failed to delete trip");
+    }
+  },
+
+  completeTrip: async (tripId: string) => {
+    try {
+      const trip = await tripService.completeTrip(tripId);
+
+      set({
+        selectedTrip: trip,
+      });
+
+      toast.success("Trip Completed");
+    } catch {
+      toast.error("Something went wrong");
     }
   },
 }));

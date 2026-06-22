@@ -259,3 +259,33 @@ export const togglePackingItem = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const completeTrip = async (req: Request, res: Response) => {
+  try {
+    const trip = await Trip.findOne({
+      _id: req.params.tripId,
+      userId: req.user.id,
+    });
+
+    if (!trip) {
+      return res.status(404).json({
+        success: false,
+        message: "Trip not found",
+      });
+    }
+
+    trip.status = "completed";
+
+    await trip.save();
+
+    res.json({
+      success: true,
+      trip,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to complete trip",
+    });
+  }
+};

@@ -1,3 +1,5 @@
+import { BriefcaseBusiness, CheckCircle2, FileText } from "lucide-react";
+
 import StatCard from "./StatCard";
 
 export default function DashboardStats({ trips }: any) {
@@ -7,17 +9,31 @@ export default function DashboardStats({ trips }: any) {
     (trip: any) => trip.status === "completed",
   ).length;
 
+  const plannedTrips = trips.filter(
+    (trip: any) => trip.status === "planned",
+  ).length;
+
   const draftTrips = trips.filter(
     (trip: any) => trip.status === "draft",
   ).length;
 
   return (
-    <div className="mt-8 flex flex-wrap gap-4">
-      <StatCard title="Total Trips" value={totalTrips} />
+    <div className="mt-8 grid gap-4 md:grid-cols-3">
+      <StatCard
+        title="Total Trips"
+        value={totalTrips}
+        icon={BriefcaseBusiness}
+      />
 
-      <StatCard title="Completed" value={completedTrips} />
+      <StatCard
+        title="Planned Trips"
+        value={plannedTrips}
+        icon={CheckCircle2}
+      />
 
-      <StatCard title="Draft" value={draftTrips} />
+      <StatCard title="Completed" value={completedTrips} icon={CheckCircle2} />
+
+      <StatCard title="Draft Trips" value={draftTrips} icon={FileText} />
     </div>
   );
 }

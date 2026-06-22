@@ -12,8 +12,8 @@ export default function GenerateTripButton({ tripId }: Props) {
   return (
     <button
       onClick={() => generateTrip(tripId)}
-      className="rounded-lg bg-sky-600 px-5 py-3 text-white hover:bg-sky-500 cursor-pointer">
-      Generate AI Itinerary
+      className="rounded-xl bg-black px-6 py-3 font-medium text-white transition hover:bg-zinc-900 cursor-pointer">
+      Generate AI Trip
     </button>
   );
 }
