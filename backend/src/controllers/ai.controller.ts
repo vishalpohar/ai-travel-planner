@@ -1,13 +1,12 @@
-import { Response } from "express";
+import { Request, Response } from "express";
 import Trip from "../models/Trip.js";
 
 import { getWeather } from "../services/weather.service.js";
 import { recalculateBudget } from "../utils/recalculateBudget.js";
 import { calculateTripBudget } from "../utils/calculateTripBudget.js";
-import { AuthRequest } from "../types/auth-request.js";
 import { generateTripAIData, regenerateDayData } from "../services/trip-ai-service.js";
 
-export const generateTrip = async (req: AuthRequest, res: Response) => {
+export const generateTrip = async (req: Request, res: Response) => {
   try {
     const trip = await Trip.findOne({
       _id: req.params.tripId,
@@ -53,7 +52,7 @@ export const generateTrip = async (req: AuthRequest, res: Response) => {
   }
 };
 
-export const regenerateDay = async (req: AuthRequest, res: Response) => {
+export const regenerateDay = async (req: Request, res: Response) => {
   try {
     const { tripId, dayNumber, instruction } = req.body;
 

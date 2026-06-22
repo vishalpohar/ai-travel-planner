@@ -1,11 +1,10 @@
-import { Response } from "express";
+import { Request, Response } from "express";
 
 import Trip from "../models/Trip.js";
 import { recalculateBudget } from "../utils/recalculateBudget.js";
-import { AuthRequest } from "../types/auth-request.js";
 import mongoose from "mongoose";
 
-export const createTrip = async (req: AuthRequest, res: Response) => {
+export const createTrip = async (req: Request, res: Response) => {
   try {
     const trip = await Trip.create({
       ...req.body,
@@ -21,7 +20,7 @@ export const createTrip = async (req: AuthRequest, res: Response) => {
   }
 };
 
-export const getTrips = async (req: AuthRequest, res: Response) => {
+export const getTrips = async (req: Request, res: Response) => {
   try {
     const trips = await Trip.find(
       {
@@ -43,7 +42,7 @@ export const getTrips = async (req: AuthRequest, res: Response) => {
   }
 };
 
-export const getTrip = async (req: AuthRequest, res: Response) => {
+export const getTrip = async (req: Request, res: Response) => {
   try {
     const trip = await Trip.findOne({
       _id: req.params.id,
@@ -66,7 +65,7 @@ export const getTrip = async (req: AuthRequest, res: Response) => {
   }
 };
 
-export const updateTrip = async (req: AuthRequest, res: Response) => {
+export const updateTrip = async (req: Request, res: Response) => {
   try {
     const trip = await Trip.findOneAndUpdate(
       {
@@ -94,7 +93,7 @@ export const updateTrip = async (req: AuthRequest, res: Response) => {
   }
 };
 
-export const deleteTrip = async (req: AuthRequest, res: Response) => {
+export const deleteTrip = async (req: Request, res: Response) => {
   try {
     const trip = await Trip.findOneAndDelete({
       _id: req.params.id,
@@ -118,7 +117,7 @@ export const deleteTrip = async (req: AuthRequest, res: Response) => {
   }
 };
 
-export const addActivity = async (req: AuthRequest, res: Response) => {
+export const addActivity = async (req: Request, res: Response) => {
   try {
     const { tripId, dayNumber } = req.params;
 
@@ -170,7 +169,7 @@ export const addActivity = async (req: AuthRequest, res: Response) => {
   }
 };
 
-export const removeActivity = async (req: AuthRequest, res: Response) => {
+export const removeActivity = async (req: Request, res: Response) => {
   try {
     const { tripId, activityId } = req.params;
 
@@ -208,7 +207,7 @@ export const removeActivity = async (req: AuthRequest, res: Response) => {
   }
 };
 
-export const togglePackingItem = async (req: AuthRequest, res: Response) => {
+export const togglePackingItem = async (req: Request, res: Response) => {
   try {
     const tripId = req.params.tripId as string;
 
