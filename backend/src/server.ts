@@ -15,6 +15,8 @@ const app = express();
 app.use(
   cors({
     origin: (origin, callback) => {
+      console.log("Incoming Origin:", origin);
+      console.log("Allowed Origin:", process.env.FRONTEND_URL);
       if (!origin || origin === process.env.FRONTEND_URL) {
         callback(null, true);
       } else {
