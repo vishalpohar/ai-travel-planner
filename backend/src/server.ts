@@ -27,8 +27,6 @@ app.use(
 
 app.use(express.json());
 
-connectDB();
-
 app.get("/", (_, res) => {
   res.send("Travel Planner API");
 });
@@ -39,6 +37,17 @@ app.use("/api/ai", aiRoutes);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+const startServer = async () => {
+  try {
+    await connectDB();
+
+    app.listen(PORT, () => {
+      console.log(`Server running on ${PORT}`);
+    });
+  } catch (error) {
+    console.error("Failed to connect database");
+    process.exit(1);
+  }
+};
+
+startServer();
