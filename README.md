@@ -1,20 +1,18 @@
-# AI Travel Planner ✈️
+# AI Travel Planner
 
 AI Travel Planner is a full-stack web application that helps users create personalized travel itineraries using Generative AI. Users can create trips, generate AI-powered travel plans, estimate trip budgets, manage activities, track packing lists, and regenerate itinerary days based on custom preferences.
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
-Frontend: [Add Frontend URL]
-
-Backend API: [Add Backend URL]
+Website Url: [Add Frontend URL]
 
 Walkthrough Video: [Add Video URL]
 
 ---
 
-# 📌 Features
+# Features
 
 ### Authentication & Authorization
 
@@ -80,7 +78,7 @@ AI suggests:
 
 ### Smart Weather-Aware Packing List
 
-Custom Feature ⭐
+Custom Feature
 
 The application fetches destination weather information and generates a smart packing list based on:
 
@@ -95,7 +93,7 @@ Users can:
 
 ---
 
-# 🛠️ Tech Stack
+# Tech Stack
 
 ## Frontend
 
@@ -131,7 +129,7 @@ Users can:
 
 ---
 
-# 🏗️ System Architecture
+# System Architecture
 
 Frontend (Next.js)
 
@@ -165,7 +163,7 @@ OpenWeather API
 
 ---
 
-# 📂 Project Structure
+# Project Structure
 
 ## Frontend
 
@@ -209,7 +207,7 @@ backend/
 
 ---
 
-# 🔐 Authentication & Authorization
+# Authentication & Authorization
 
 ### Authentication
 
@@ -248,7 +246,7 @@ This prevents unauthorized access to other users' data.
 
 ---
 
-# 🤖 AI Agent Design
+# AI Design
 
 The application uses Gemini AI to generate:
 
@@ -279,7 +277,7 @@ This minimizes hallucinations and ensures predictable responses.
 
 ---
 
-# ⭐ Custom Feature
+# Custom Feature
 
 ## Weather-Aware Smart Packing Assistant
 
@@ -307,7 +305,7 @@ Benefits:
 
 ---
 
-# ⚡ Performance Optimizations
+# Performance Optimizations
 
 Implemented:
 
@@ -322,7 +320,7 @@ Implemented:
 
 ---
 
-# 📱 Responsive Design
+# Responsive Design
 
 Fully responsive across:
 
@@ -339,31 +337,33 @@ Includes:
 
 ---
 
-# 🔧 Environment Variables
+# Environment Variables
 
 ## Backend
 
 ```env
 PORT=5000
 
-MONGODB_URI=
+MONGODB_URI=your_mongodb_uri
 
-JWT_SECRET=
+JWT_SECRET=secret_key
 
-GEMINI_API_KEY=
+GEMINI_API_KEY=your_gemini_api_key
 
-OPENWEATHER_API_KEY=
+OPENWEATHER_API_KEY=your_openweather_key
+
+FRONTEND_URL=your_frontend_url
 ```
 
 ## Frontend
 
 ```env
-NEXT_PUBLIC_API_URL=
+NEXT_PUBLIC_API_URL=your_backend_url
 ```
 
 ---
 
-# 🚀 Local Setup
+# Local Setup
 
 ## Clone Repository
 
@@ -405,7 +405,7 @@ http://localhost:5000
 
 ---
 
-# 📌 API Endpoints
+# API Endpoints
 
 ## Authentication
 
