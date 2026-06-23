@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, CheckCircle2, FileText } from "lucide-react";
+import { BriefcaseBusiness, CheckCircle2, FileText, MapPinned } from "lucide-react";
 
 import StatCard from "./StatCard";
 
@@ -25,15 +25,11 @@ export default function DashboardStats({ trips }: any) {
         icon={BriefcaseBusiness}
       />
 
-      <StatCard
-        title="Planned Trips"
-        value={plannedTrips}
-        icon={CheckCircle2}
-      />
+      <StatCard title="Draft Trips" value={draftTrips} icon={FileText} />
+
+      <StatCard title="Planned Trips" value={plannedTrips} icon={MapPinned} />
 
       <StatCard title="Completed" value={completedTrips} icon={CheckCircle2} />
-
-      <StatCard title="Draft Trips" value={draftTrips} icon={FileText} />
     </div>
   );
 }
