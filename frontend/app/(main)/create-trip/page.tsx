@@ -158,7 +158,7 @@ export default function CreateTripPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-xl bg-black py-4 font-medium text-white transition hover:bg-zinc-900 disabled:cursor-not-allowed disabled:opacity-60">
+            className="w-full rounded-xl bg-black py-4 font-medium text-white transition hover:bg-zinc-900 disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer">
             {loading ? "Creating Trip..." : "Generate AI Trip Plan"}
           </button>
         </form>

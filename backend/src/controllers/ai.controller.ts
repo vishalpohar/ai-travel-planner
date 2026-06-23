@@ -4,7 +4,10 @@ import Trip from "../models/Trip.js";
 import { getWeather } from "../services/weather.service.js";
 import { recalculateBudget } from "../utils/recalculateBudget.js";
 import { calculateTripBudget } from "../utils/calculateTripBudget.js";
-import { generateTripAIData, regenerateDayData } from "../services/trip-ai-service.js";
+import {
+  generateTripAIData,
+  regenerateDayData,
+} from "../services/trip-ai-service.js";
 
 export const generateTrip = async (req: Request, res: Response) => {
   try {
@@ -21,6 +24,13 @@ export const generateTrip = async (req: Request, res: Response) => {
     }
 
     const weather = await getWeather(trip.destination);
+
+    if (!weather?.main) {
+      return res.status(400).json({
+        success: false,
+        message: "Destination must be a valid city, country, or location.",
+      });
+    }
 
     const parsed = await generateTripAIData(trip, weather);
 
@@ -42,12 +52,12 @@ export const generateTrip = async (req: Request, res: Response) => {
     await trip.save();
 
     res.json({ success: true, trip });
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
 
     res.status(500).json({
       success: false,
-      message: "Failed to generate itinerary",
+      message: error.message || "Failed to generate itinerary",
     });
   }
 };

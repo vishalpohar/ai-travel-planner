@@ -6,6 +6,7 @@ import type { Trip } from "@/types/trip";
 import { AddActivityPayload } from "@/types/trip.dto";
 
 import toast from "react-hot-toast";
+import { getErrorMessage } from "@/lib/getErrorMessage";
 
 interface TripStore {
   trips: Trip[];
@@ -107,8 +108,8 @@ export const useTripStore = create<TripStore>((set) => ({
       toast.success("Itinerary generated", {
         id: toastId,
       });
-    } catch {
-      toast.error("Generation failed", {
+    } catch (error) {
+      toast.error(getErrorMessage(error) || "Generation failed", {
         id: toastId,
       });
     }
