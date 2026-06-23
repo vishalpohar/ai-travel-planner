@@ -6,9 +6,9 @@ AI Travel Planner is a full-stack web application that helps users create person
 
 ## Live Demo
 
-Website Url: [Add Frontend URL]
+Website Url: https://ai-travel-planner-alpha-dusky.vercel.app
 
-Walkthrough Video: [Add Video URL]
+Walkthrough Video: https://drive.google.com/file/d/1rPiXvuqH-M3Th8NAm8X_lLXjR0gFkbzJ/view?usp=sharing
 
 ---
 
